@@ -63,3 +63,11 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+
+# GeoQuiz
+01GeoQuiz/.idea
+01GeoQuiz/.gradle/
+01GeoQuiz/local.properties
+01GeoQuiz/*.iml
+01GeoQuiz/build/
+
