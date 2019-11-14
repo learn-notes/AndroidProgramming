@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
  */
 class MainActivity : AppCompatActivity() {
 
-    val TAG = "MainActivity"
+    private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +21,13 @@ class MainActivity : AppCompatActivity() {
 
         // 首个例子
         findViewById<Button>(R.id.btn_first).setOnClickListener {
-            startActivity(Intent(this, QuizActivity::class.java))
+            val intent = Intent()
+            startActivity(intent.let {
+                it.setClass(this, QuizActivity::class.java)
+                it.putExtra("TAG", TAG)
+            })
+
+//            startActivity(Intent(this, QuizActivity::class.java))
         }
     }
 

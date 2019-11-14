@@ -9,7 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class QuizActivity : AppCompatActivity() {
 
-    val TAG = "QuizActivity"
+    private val TAG = "QuizActivity"
+    private val KEY_INDEX = "index"
 
     private lateinit var mQuestionTextView: TextView
     private val mQuestionBank = listOf(
@@ -27,6 +28,13 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
         Log.e(TAG, "onCreate()")
+
+        val s =  this.intent.getStringExtra("TAG")
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
+
+        if (savedInstanceState != null) {
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX,0)
+        }
 
         this.mQuestionTextView = findViewById(R.id.question_text_view)
         mQuestionTextView.setText(mQuestionBank[mCurrentIndex].textResId)
@@ -80,6 +88,11 @@ class QuizActivity : AppCompatActivity() {
                 R.string.correct_toast
             } else R.string.incorrect_toast
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(KEY_INDEX, mCurrentIndex)
     }
 
     override fun onStart() {
