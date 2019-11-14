@@ -64,10 +64,19 @@ fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
 
-# GeoQuiz
+# 01GeoQuiz
 01GeoQuiz/.idea
 01GeoQuiz/.gradle/
 01GeoQuiz/local.properties
 01GeoQuiz/*.iml
 01GeoQuiz/build/
+
+# 02CriminalIntent
+02CriminalIntent/.idea
+02CriminalIntent/.gradle/
+02CriminalIntent/local.properties
+02CriminalIntent/*.iml
+02CriminalIntent/build/
+
+
 
