@@ -1,12 +1,15 @@
 package com.joh.myapplication
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class QuizActivity : AppCompatActivity() {
+
+    val TAG = "QuizActivity"
 
     private lateinit var mQuestionTextView: TextView
     private val mQuestionBank = listOf(
@@ -23,6 +26,7 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
+        Log.e(TAG, "onCreate()")
 
         this.mQuestionTextView = findViewById(R.id.question_text_view)
         mQuestionTextView.setText(mQuestionBank[mCurrentIndex].textResId)
@@ -76,5 +80,30 @@ class QuizActivity : AppCompatActivity() {
                 R.string.correct_toast
             } else R.string.incorrect_toast
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.e(TAG, "onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.e(TAG, "onResume()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.e(TAG, "onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.e(TAG, "onStop()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e(TAG, "onDestroy()")
     }
 }
